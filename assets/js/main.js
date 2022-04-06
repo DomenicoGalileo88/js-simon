@@ -42,7 +42,7 @@ function genRandomNumberList() {
 //Da lì parte un timer di 30 secondi.
 
 //Inizzializzo il tempo
-let time = 30;
+let time = 5;
 
 //Inizzializzo una variabile che contiene il tempo a schermo
 let timeScreen = document.getElementById('time_screen');
@@ -53,16 +53,16 @@ setInterval(countdown, 1000);
 //Faccio una funzione con il tempo che trascorre
 function countdown() {
     //Se il tempo è = a -1
-    if (time == - 1) {
+    if (time < 0) {
         // ferma il setInterval
         clearTimeout();
+
     } else {
         // stampa a schermo il tempo decrementato 
         timeScreen.innerHTML = time--;
     }
+
 }
-
-
 //Dopo 30 secondi l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
 
 

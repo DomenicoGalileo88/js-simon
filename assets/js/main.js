@@ -55,8 +55,7 @@ function countdown() {
     //Se il tempo è < 0
     if (time < 0) {
         // ferma il setInterval
-        clearInterval();
-        
+        clearInterval();  
     } else {
         // stampa a schermo il tempo decrementato 
         timeScreen.innerHTML = time--;
@@ -64,13 +63,40 @@ function countdown() {
 }
 
 setTimeout(function () {
+    // togliere i numeri a schermo
     document.getElementById('numbers').innerHTML = '';
-    console.log(numbers);
-}, 6000);
+
+    // togliere il timer dallo schermo
+    document.getElementById('time_screen').innerHTML = '';
+    //console.log(numbers);
+
+    //Dopo 30 secondi l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
+    let userNumbers = [];
+
+    let winsNumber = [];
+   
+    for( let i = 0; i < numbers.length; i++){
+        let userNumber = prompt('Inserisci un numero:');
+        userNumbers.push(parseInt(userNumber));
+        if (numbers.includes(parseInt(userNumber))) {
+            winsNumber.push(userNumber);
+        }
+    };
+
+    //console.log(userNumbers);
+    //console.log(winsNumber);
+
+    document.getElementById('true_number').innerHTML = `Hai trovato ${winsNumber.length} numeri :  ${winsNumber}`;
 
 
-//Dopo 30 secondi l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
-// togliere i numeri a schermo
 
 
-//Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
+
+    //Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
+    //quanti numeri inseriti dall'utente sono uguali a quelli del computer
+  /*   if (numbers) {
+        
+    } */
+}, 7000);
+
+

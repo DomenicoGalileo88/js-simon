@@ -37,7 +37,7 @@ function genRandomNumberList() {
     //console.log(numbers);
 
     //Stampo la mia lista di numeri a scermo con nun h2
-    let stampNumbers = document.getElementById('numbers').innerHTML = numbers;
+    document.getElementById('numbers').innerHTML = numbers;
 
 //Da lì parte un timer di 30 secondi.
 
@@ -50,21 +50,25 @@ let timeScreen = document.getElementById('time_screen');
 // Aggiungo una time function che richiama la mia funzione ogni 1s
 setInterval(countdown, 1000);
 
-
 //Faccio una funzione con il tempo che trascorre
 function countdown() {
     //Se il tempo è < 0
     if (time < 0) {
         // ferma il setInterval
         clearInterval();
-        setTimeout(function(){
-            stampNumbers.innerHTML = '';
-        }, 6000);
+        
     } else {
         // stampa a schermo il tempo decrementato 
         timeScreen.innerHTML = time--;
     }
 }
+
+setTimeout(function () {
+    document.getElementById('numbers').innerHTML = '';
+    console.log(numbers);
+}, 6000);
+
+
 //Dopo 30 secondi l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
 // togliere i numeri a schermo
 

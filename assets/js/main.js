@@ -37,7 +37,7 @@ function genRandomNumberList() {
     //console.log(numbers);
 
     //Stampo la mia lista di numeri a scermo con nun h2
-    document.querySelector('h2').innerHTML = numbers;
+    let stampNumbers = document.querySelector('h2').innerHTML = numbers;
 
 //Da lì parte un timer di 30 secondi.
 
@@ -48,7 +48,8 @@ let time = 5;
 let timeScreen = document.getElementById('time_screen');
 
 // Aggiungo una time function che richiama la mia funzione ogni 1s
-setInterval(countdown, 1000);
+//setInterval(countdown, 1000);
+setTimeout(countdown, 3000)
 
 //Faccio una funzione con il tempo che trascorre
 function countdown() {
@@ -56,15 +57,14 @@ function countdown() {
     if (time < 0) {
         // ferma il setInterval
         clearTimeout();
-
+        
     } else {
         // stampa a schermo il tempo decrementato 
         timeScreen.innerHTML = time--;
     }
-
 }
 //Dopo 30 secondi l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
-
+// togliere i numeri a schermo
 
 
 //Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.

@@ -48,16 +48,16 @@ let time = 5;
 let timeScreen = document.getElementById('time_screen');
 
 // Aggiungo una time function che richiama la mia funzione ogni 1s
-//setInterval(countdown, 1000);
-setTimeout(countdown, 3000)
+setInterval(countdown, 1000);
+
 
 //Faccio una funzione con il tempo che trascorre
 function countdown() {
-    //Se il tempo è = a -1
+    //Se il tempo è < 0
     if (time < 0) {
         // ferma il setInterval
-        clearTimeout();
-        
+        clearInterval();
+        stampNumbers.innerHTML = ''
     } else {
         // stampa a schermo il tempo decrementato 
         timeScreen.innerHTML = time--;

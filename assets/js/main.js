@@ -37,7 +37,7 @@ function genRandomNumberList() {
     //console.log(numbers);
 
     //Stampo la mia lista di numeri a scermo con nun h2
-    let stampNumbers = document.querySelector('h2').innerHTML = numbers;
+    let stampNumbers = document.getElementById('numbers').innerHTML = numbers;
 
 //Da lì parte un timer di 30 secondi.
 
@@ -57,7 +57,9 @@ function countdown() {
     if (time < 0) {
         // ferma il setInterval
         clearInterval();
-        stampNumbers.innerHTML = ''
+        setTimeout(function(){
+            stampNumbers.innerHTML = '';
+        }, 6000);
     } else {
         // stampa a schermo il tempo decrementato 
         timeScreen.innerHTML = time--;
